@@ -1,0 +1,19 @@
+
+
+/* -------- table style -------- */
+table, td, th {
+  border: 1px solid black;
+}
+table {
+  margin: 1rem;
+}
+td, th {
+  padding: 1rem;
+}
+thead {
+  font-weight: bold;
+  background-color: lightseagreen;
+}
+tfoot {
+  background-color: lightyellow;
+}

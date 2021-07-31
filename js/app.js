@@ -21,10 +21,12 @@ let seattle = {
   },
 
   cookiesPurchased: function() {
+    // for each hour of the day, run getRandomCustomer() and push value to avgCookiesSoldEachHourArray.
     return Math.ceil(this.getRandomCustomer() * this.avg);
       },
 
   render: function() {
+    // this will redner the list to the page
     let seattleHeader = document.createElement('h3');
       seattleHeader.textContent = 'Seattle Cookies Sold by Hour';
       mainCookieList.appendChild(seattleHeader);
