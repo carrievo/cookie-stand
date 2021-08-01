@@ -1,25 +1,26 @@
 /* -------- table style -------- */
 h1 {
   text-align: center;
-  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 2.5%;
-  color: #000000
+  color: #402470;
 }
 
-table {
+table, td, th {
+  border-collapse: collapse;
   text-align: left;
-  background-color: #d6baf0;
-  border-style: 1px solid #402470;
+  background-color: #b892c0;
+  border: 1px solid #402470;
   margin-left: 1.5%;
   color: #0F2557;
+  padding: 10px;
 }
 
 th {
   padding: 5px;
-  /* text-decoration: underline #8007d1; */
 }
 
 tr {
-  padding: 14px;
-  border-bottom: 2px solid #8007d1;
+  padding: 20px;
+  border-bottom: solid 2px #8007d1;
 }

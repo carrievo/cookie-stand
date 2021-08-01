@@ -3,7 +3,7 @@
 console.log('Hello world!');
 
 //create hours array
-let hourOfDay = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12AM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM'];
+let hourOfDay = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 a.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
 let listOfCookies = document.getElementById('cookieSales');
 
@@ -14,7 +14,7 @@ function Cookieshop (location, min, max, avg) {
     this.avg = avg;
     this.customersPerHour = [];
     this.cookiesPerHour = [];
-    this.cookieTotal = 0;
+    this.cookiesTotal = 0;
 
     this.getRandomNumber = function(min, max) {
       let randomNumber = Math.floor(Math.random() * (max - min + 1) + min);
@@ -116,7 +116,7 @@ function renderActualTable() {
       shopTableElem.appendChild(shopCellElem2);
     }
     const shopCellElem3 = document.createElement('td');
-    shopCellElem3.textContent = 'Total Cookies: ' + actualShop.cookieTotal;
+    shopCellElem3.textContent = 'Total Cookies: ' + actualShop.cookiesTotal;
     shopTableElem.appendChild(shopCellElem3);
   }
 }
@@ -126,12 +126,12 @@ function renderFooterTable() {
   newTableElem.appendChild(footerElem);
 
   const rowFooterElem = document.createElement('th');
-  rowFooterElem.textContent = 'Total Hourly Cookies Sold for Combined Cities';
+  rowFooterElem.textContent = 'Total Hourly Cookies';
   footerElem.appendChild(rowFooterElem);
 
   let dailyTotalCookies = [];
-  for (let h = 0; h < hourOfDay.length; h++) {
-    let cookieHourlyTotal = 0;
+    for (let h = 0; h < hourOfDay.length; h++) {
+      let cookieHourlyTotal = 0;
     for (let i = 0; i < Cookieshop.prototype.shopArray.length; i++) {
       let currentStore = Cookieshop.prototype.shopArray[i];
       cookieHourlyTotal += currentStore.cookiesPerHour[h];
@@ -146,7 +146,7 @@ function renderFooterTable() {
     cookieDailyTotal += dailyTotalCookies[i];
   }
   const shopCellElem3 = document.createElement('td');
-  shopCellElem3.textContent = `Ultimate Total: ` + cookieDailyTotal;
+  shopCellElem3.textContent = `Overall Total: ` + cookieDailyTotal;
   footerElem.appendChild(shopCellElem3);
 }
 
