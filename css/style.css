@@ -1,0 +1,26 @@
+/* -------- table style -------- */
+h1 {
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 2.5%;
+  color: #402470;
+}
+
+table, td, th {
+  border-collapse: collapse;
+  text-align: left;
+  background-color: #b892c0;
+  border: 1px solid #402470;
+  margin-left: 1.5%;
+  color: #0F2557;
+  padding: 10px;
+}
+
+th {
+  padding: 5px;
+}
+
+tr {
+  padding: 20px;
+  border-bottom: solid 2px #8007d1;
+}
