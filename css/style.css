@@ -1,18 +1,18 @@
-/* -------- table style -------- */
+/* -------- table style for sales.html -------- */
 h1 {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin-left: 2.5%;
-  color: #402470;
+  color: rgb(233, 122, 71);
 }
 
 table, td, th {
   border-collapse: collapse;
   text-align: left;
-  background-color: #b892c0;
-  border: 1px solid #402470;
+  background-color: rgb(247, 228, 65);
+  border: 1px solid #111;
   margin-left: 1.5%;
-  color: #0F2557;
+  color: #111;
   padding: 10px;
 }
 
@@ -22,5 +22,120 @@ th {
 
 tr {
   padding: 20px;
-  border-bottom: solid 2px #8007d1;
+  border-bottom: solid 2px #111;
 }
+
+/* -------- style for sales.css -------- */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(247, 228, 65);
+}
+
+header {
+  width: 100%;
+  background-color: rgb(233, 122, 71);
+  border-bottom: #111 10px double;
+}
+
+nav {
+  margin: 0 auto;
+  width: 960px;
+  display: flex;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  padding: 1rem;
+}
+
+nav li {
+  list-style-type: none;
+}
+
+header img {
+  margin-right: 1rem;
+}
+
+nav a {
+  color:whitesmoke;
+  text-decoration: none;
+  margin: 1rem;
+}
+
+main {
+  margin: 30px auto;
+  width: 960px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main > img {
+  margin-bottom: 30px;
+}
+
+article {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+article h3 {
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+p {
+  overflow: auto;
+  height: 310px;
+}
+
+article a {
+  background-color: #111;
+  border-radius: .3rem;
+  color: whitesmoke;
+  text-decoration: none;
+  padding: .5rem 1.5rem;
+  align-self: flex-start;
+}
+
+article a:hover {
+  opacity: 30%;
+}
+
+main > img:nth-child(5) {
+  margin-bottom: 0;
+}
+
+footer {
+  background-color: rgb(233, 122, 71);
+  border-top: #111 10px double;
+  width: 100%;
+  height: 300px;
+  padding: -60px;
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+footer p {
+  margin-left: 10px;
+  padding: 0;
+  color: #111;
+}
+
+footer div p {
+  margin-bottom: 110px;
+  font-size: 12px;
+}
+
