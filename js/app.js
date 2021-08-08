@@ -179,7 +179,14 @@ newTableElem.innerHTML = '';
 renderNewHeader();
 renderActualTable();
 renderFooterTable();
+clearAllForm();
 
+function clearAllForm () {
+  event.target.newLocation.value = null;
+  event.target.newMin.value = null;
+  event.target.newMax.value = null;
+  event.target.newAvg.value = null;
+  }
 }
 
 form.addEventListener('submit', handleSubmit);
