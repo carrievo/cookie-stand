@@ -13,12 +13,46 @@
     <a href="index.html">Return to Home Page</a>
   </header>
   <main>
+      <!-- this is where the form will go -->
+      <!--function Cookieshop (location, min, max, avg) {
+          this.location = location;
+          this.min = min;
+          this.max = max;
+          this.avg = avg;
+          this.customersPerHour = [];
+          this.cookiesPerHour = [];
+          this.cookiesTotal = 0;-->
+<div>
+  <form id='form'>
+    <fieldset>
+    <legend>Enter in New Location</legend>
+      <label>City</label>
+        <input type="text" id="newLocation" placeholder="City" required>
+
+      <label>Minimun Sales
+        <input type="text" id="newMin" placeholder="Number Amount" required>
+      </label>
+
+      <label>Maximun Sales
+        <input type="text" id="newMax" placeholder="Number Amount" required>
+      </label>
+
+      <label>Average Sales
+        <input type="text" id="newAvg" placeholder="Average Sales" required>
+      </label>
+
+    <button type="submit">Submit</button>
+    </fieldset>
+  </form>
+</div>
+</main>
+
+
+<!-- this is the sales table -->
     <div id='cookieSales'> 
     <h1>Cookie Sales</h1>
 
     </div>
-
-  </main>
 
   <footer>
 

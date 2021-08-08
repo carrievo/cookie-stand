@@ -1,10 +1,11 @@
-# LAB 06: Salmon Cookies
-
 ## cookie-stand
 
 I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
 
-### Author: Student/Group Name
+### Author: Carrie Vo
+* Collaborated with Johnny Barragan, Brian Tarte, Christine Lora, Eddie Ponce, Brandon Mizutani.
+
+* With Help from: Michael Enclava, Joe Pennock, Sheyna Watkins.
 
 ### Links and Resources
 * [submission PR](http://xyz.com)
