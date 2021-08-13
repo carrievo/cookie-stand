@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Hello world!');
-
 //create hours array
 let hourOfDay = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 a.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
@@ -21,12 +19,12 @@ function Cookieshop (location, min, max, avg) {
       return randomNumber;
     };
 
-this.renderCustomersPerHour = function(min, max) {
+this.renderCustomersPerHour = function() {
   for (let i = 0; i < hourOfDay.length; i++) {
     let num = this.getRandomNumber(this.min, this.max)
     this.customersPerHour.push(num);
   }
-  console.log(this.customersPerHour);
+
 };
 
 this.renderCookiesPerHour = function() {
@@ -35,7 +33,7 @@ this.renderCookiesPerHour = function() {
     this.cookiesTotal += num;
     this.cookiesPerHour.push(num);
   }
-  console.log(this.cookiesPerHour);
+
 };
 
 // this is what shows up on the browser  -----------------------------------------------------------------------------------
@@ -63,14 +61,14 @@ for (let i = 0; i < hourOfDay.length; i++) {
   this.callUponAll = function() {
     this.renderCustomersPerHour();
     this.renderCookiesPerHour();
-    // this.renderCity();
   }
 
   this.callUponAll();
-      this.shopArray.push(this);
+  shopArray.push(this);
+  console.log(this.shopArray);
 }
 
-Cookieshop.prototype.shopArray = [];
+const shopArray = [];
 
 const seattle = new Cookieshop('Seattle', 23, 65, 6.3);
 const tokyo = new Cookieshop('Tokyo', 3, 24, 1.2);
@@ -78,77 +76,77 @@ const dubai = new Cookieshop('Dubai', 11, 38, 3.7);
 const paris = new Cookieshop('Paris', 20, 38, 2.3);
 const lima = new Cookieshop('Lima', 2, 16, 4.6);
 
-console.log(Cookieshop.prototype.shopArray);
-
 
 // table code  --------------------------------------------------------------------------------------------------------
 const tableCookies = document.getElementById(`cookieSales`);
 
-const newTableElem = document.createElement('table');
-tableCookies.appendChild(newTableElem);
+const newTableCookies = document.createElement('table');
+tableCookies.appendChild(newTableCookies);
 
 function renderNewHeader() {
   const rowHeader = document.createElement('tr');
-  newTableElem.appendChild(rowHeader);
+  newTableCookies.appendChild(rowHeader);
 
   const rowCellHeader = document.createElement('th');
-  newTableElem.appendChild(rowCellHeader);
+  newTableCookies.appendChild(rowCellHeader);
 
   for (let i = 0; i < hourOfDay.length; i++) {
     const rowCellHeader = document.createElement('th');
     rowCellHeader.textContent = hourOfDay[i];
-    newTableElem.appendChild(rowCellHeader);
+    newTableCookies.appendChild(rowCellHeader);
   }
 };
 
+function elementBuilder(elementToCreate, contents, parent) {
+  let newElement = document.createElement(elementToCreate);
+    newElement.textContent = contents;
+    parent.appendChild(newElement);
+}
+
+Cookieshop.prototype.renderTableRow = function() {
+  const shopTableElem = document.createElement('tr');
+    newTableCookies.appendChild(shopTableElem);
+
+    elementBuilder('th', this.location.shopTableElem);
+
+    for (let j = 0; j < this.cookiesPerHour.length; j++) {
+      elementBuilder('td',`${this.cookiesPerHour[j]}`,shopTableElem); 
+  }
+      elementBuilder('td', 'Total Store Cookies: ' + this.cookiesTotal, shopTableElem);
+
+}
+
 function renderActualTable() {
-  for (let i = 0; i < Cookieshop.prototype.shopArray.length; i++) {
-    let actualShop = Cookieshop.prototype.shopArray[i];
-    const shopTableElem = document.createElement('tr');
-    newTableElem.appendChild(shopTableElem);
-
-    const shopCellElem = document.createElement('th');
-    shopCellElem.textContent = actualShop.location;
-    shopTableElem.appendChild(shopCellElem);
-
-    for (let j = 0; j < actualShop.cookiesPerHour.length; j++) {
-      const shopCellElem2 = document.createElement('td');
-      shopCellElem2.textContent = `${actualShop.cookiesPerHour[j]}`;
-      shopTableElem.appendChild(shopCellElem2);
-    }
-    const shopCellElem3 = document.createElement('td');
-    shopCellElem3.textContent = 'Total Cookies: ' + actualShop.cookiesTotal;
-    shopTableElem.appendChild(shopCellElem3);
+  for (let i=0; i < shopArray.length; i++){
+    shopArray[i].renderTableRow();
   }
 }
 
 function renderFooterTable() {
-  const footerElem = document.createElement('tr');
-  newTableElem.appendChild(footerElem);
+  const footerElem = document.createElement('tfoot');
+  newTableCookies.appendChild(footerElem);
 
-  const rowFooterElem = document.createElement('th');
-  rowFooterElem.textContent = 'Total Hourly Cookies';
-  footerElem.appendChild(rowFooterElem);
+elementBuilder('th','Total Hourly Cookies',footerElem);
 
-  let dailyTotalCookies = [];
-    for (let h = 0; h < hourOfDay.length; h++) {
-      let cookieHourlyTotal = 0;
-    for (let i = 0; i < Cookieshop.prototype.shopArray.length; i++) {
-      let currentStore = Cookieshop.prototype.shopArray[i];
-      cookieHourlyTotal += currentStore.cookiesPerHour[h];
-    }
-    const shopCellElem2 = document.createElement('td');
-    shopCellElem2.textContent = `${cookieHourlyTotal}`;
-    footerElem.appendChild(shopCellElem2);
-    dailyTotalCookies.push(cookieHourlyTotal);
+let dailyTotalCookies = [];
+for (let h = 0; h < hours.length; h++) {
+  let cookieHourlyTotal = 0;
+  for (let i = 0; i < shopArray.length; i++) {
+    let currentStore = shopArray[i];
+    cookieHourlyTotal += currentStore.cookiesPerHour[h];
   }
-  let cookieDailyTotal = 0;
-  for (let i =0; i < dailyTotalCookies.length; i++) {
-    cookieDailyTotal += dailyTotalCookies[i];
-  }
-  const shopCellElem3 = document.createElement('td');
-  shopCellElem3.textContent = `Overall Total: ` + cookieDailyTotal;
-  footerElem.appendChild(shopCellElem3);
+
+  elementBuilder('td',`${cookieHourlyTotal}`,footerElem);
+  dailyTotalCookies.push(cookieHourlyTotal);
+}
+
+let cookieDailyTotal = 0;
+for (let i =0; i < dailyTotalCookies.length; i++) {
+  cookieDailyTotal += dailyTotalCookies[i];
+}
+
+elementBuilder('td',`Overall Total: ` + cookieDailyTotal,footerElem)
+
 }
 
 renderNewHeader();
@@ -156,30 +154,30 @@ renderActualTable();
 renderFooterTable();
 
 
-// form code ----------------------------------------------------------------------------------------------------------
+// Add new store to form code ----------------------------------------------------------------------------------------------------------
 
 let form = document.getElementById('form');
+let tfoot = document.querySelector('tfoot');
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(event.target.newLocation);
     let newLocation = event.target.newLocation.value;
     let newMin = +(event.target.newMin.value);
     let newMax = +(event.target.newMax.value);
     let newAvg = +(event.target.newAvg.value);
 
-new Cookieshop (
+let newStore = new Cookieshop (
   newLocation,
   newMin,
   newMax,
   newAvg,
 );
 
-newTableElem.innerHTML = '';
-renderNewHeader();
-renderActualTable();
-renderFooterTable();
-clearAllForm();
+
+  tfoot.innerHTML = '';
+  newStore.renderTableRow();
+  renderFooterTable();
+  clearAllForm();
 
 function clearAllForm () {
   event.target.newLocation.value = null;

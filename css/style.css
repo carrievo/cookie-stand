@@ -6,6 +6,11 @@ h1 {
   color: rgb(233, 122, 71);
 }
 
+.cookieTitle {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 46px;
+}
+
 table, td, th {
   border-collapse: collapse;
   text-align: left;
@@ -40,6 +45,16 @@ header {
   width: 100%;
   background-color: rgb(233, 122, 71);
   border-bottom: #111 10px double;
+}
+
+.links {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 18px;
+}
+
+.bio {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 35px;
 }
 
 nav {
