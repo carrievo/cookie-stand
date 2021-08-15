@@ -101,7 +101,6 @@ function renderNewHeader() {
   }
 };
 
-
 function renderActualTable() {
   for (let i = 0; i < Cookieshop.prototype.shopArray.length; i++) {
     let actualShop = Cookieshop.prototype.shopArray[i];
