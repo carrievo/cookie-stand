@@ -1,12 +1,15 @@
 'use strict';
 
+// proof of life?
 console.log('Hello world!');
 
-//create hours array
+// create hours array
 let hourOfDay = ['6 a.m.', '7 a.m.', '8 a.m.', '9 a.m.', '10 a.m.', '11 a.m.', '12 a.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.'];
 
+// element 'cookieSales' from table in sales.html 
 let listOfCookies = document.getElementById('cookieSales');
 
+// ====================== CONSTRUCTOR ======================//
 function Cookieshop (location, min, max, avg) {
     this.location = location;
     this.min = min;
@@ -21,6 +24,7 @@ function Cookieshop (location, min, max, avg) {
       return randomNumber;
     };
 
+    // PUSH -- appends customersPerHour to end of num 
 this.renderCustomersPerHour = function(min, max) {
   for (let i = 0; i < hourOfDay.length; i++) {
     let num = this.getRandomNumber(this.min, this.max)
@@ -38,7 +42,7 @@ this.renderCookiesPerHour = function() {
   console.log(this.cookiesPerHour);
 };
 
-// this is what shows up on the browser  -----------------------------------------------------------------------------------
+// ====================== TABLE DATA ======================//
 this.renderCity = function() {
   let h3 = document.createElement('h3');
     h3.textContent = `${this.location}`;
@@ -63,7 +67,6 @@ for (let i = 0; i < hourOfDay.length; i++) {
   this.callUponAll = function() {
     this.renderCustomersPerHour();
     this.renderCookiesPerHour();
-    // this.renderCity();
   }
 
   this.callUponAll();
@@ -81,7 +84,7 @@ const lima = new Cookieshop('Lima', 2, 16, 4.6);
 console.log(Cookieshop.prototype.shopArray);
 
 
-// table code  --------------------------------------------------------------------------------------------------------
+// ===================== TABLE STRUCTURE =====================//
 const tableCookies = document.getElementById(`cookieSales`);
 
 const newTableElem = document.createElement('table');
@@ -100,6 +103,8 @@ function renderNewHeader() {
     elementBuilder('th', hourOfDay[i], newTableElem);
   }
 };
+
+// Prototype - adding to Cookieshop constructor
 
 function renderActualTable() {
   for (let i = 0; i < Cookieshop.prototype.shopArray.length; i++) {
@@ -144,10 +149,12 @@ renderActualTable();
 renderFooterTable();
 
 
-// form code ----------------------------------------------------------------------------------------------------------
+// ====================== FORM ======================//
 
 let form = document.getElementById('form');
 
+// Add new data to end of table
+// Event handler to fire events below
 function handleSubmit(event) {
   event.preventDefault();
   console.log(event.target.newLocation);
@@ -163,12 +170,14 @@ new Cookieshop (
   newAvg,
 );
 
+// Replace newTableElem data with new data 
 newTableElem.innerHTML = '';
 renderNewHeader();
 renderActualTable();
 renderFooterTable();
 clearAllForm();
 
+// Code to clear form after submission
 function clearAllForm () {
   event.target.newLocation.value = null;
   event.target.newMin.value = null;
@@ -177,4 +186,6 @@ function clearAllForm () {
   }
 }
 
+// Event listener for form
+// Will be triggered when new data/city is entered in form
 form.addEventListener('submit', handleSubmit);
